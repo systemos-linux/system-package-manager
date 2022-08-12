@@ -97,8 +97,17 @@ func cleanup_packages() {
 
 }
 
-func build_package(package_name string) {
-
+func build_package(path string) {
+	bar := progressbar.Default(
+		-1,
+		"Building Package...",
+	)
+	ar, e := archive.Build(path)
+	if e != nil {
+		panic(fmt.Errorf("error building package: %v", e))
+	}
+	bar.Finish()
+	fmt.Printf("Successfully built %s-%s.pkg\n", ar.Name, ar.Version)
 }
 
 func unpack_package(package_name string) {

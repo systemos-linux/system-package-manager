@@ -1,5 +1,4 @@
 .vscode
-pkg
 .a
 .o
 .obj
@@ -9,4 +8,5 @@ pkg
 .exe
 .dll
 
-
+bin/
+packages/
